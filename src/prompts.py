@@ -1,7 +1,17 @@
 ''' PENDÊNCIAS: 
+
 - Enviar funções de prompt para guardrails e para o chain
 - Normatizar guardrails
 - Confirmar se precisa versionar os pattern prompts também
+
+'''
+
+'''PARÂMETROS PARA MONTAR OS PROMPTS:
+
+- inputUsuario_validado: input do usuário validado pelo guardrail de input
+- tema: tema do input do usuário identificado pelo modelo durante a Etapa de Classificação do Prompt Chain
+- urgencia: urgência do input do usuário identificado pelo modelo durante a Etapa de Classificação do Prompt Chain
+
 '''
 
 # === EXEMPLOS FEW-SHOT PARA CLASSIFICAÇÃO === 

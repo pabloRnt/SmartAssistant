@@ -1,10 +1,3 @@
-''' Pendências: 
-- Receber prompts de prompts.py sequencialmente
-- Enviar respostas para prompts.py sequencialmente
-- Enviar prompt formatado para Guardrail de OUTPUT
-'''
-
-
 import os
 import time
 from dotenv import load_dotenv
@@ -17,15 +10,14 @@ class LLMClient:
     def __init__(self): 
         self.host = os.getenv("OLLAMA_HOST", "https://ollama.com").rstrip("/") # Determina o host do modelo
         self.model = os.getenv("OLLAMA_MODEL", "gpt-oss:120b") 
-        self.timeout = int(os.getenv("OLLAMA_TIMEOUT", "60")) # Determina tempo de expiração - 60s
         self.max_retries = int(os.getenv("OLLAMA_MAX_RETRIES", "3")) # Determina número máximo de tentativas - 3x
         
         self.client = Client(
             host=self.host,
-            headers={"Authorization": f"Bearer {api_key}"}
+            headers={"Authorization": f"Bearer {api_key}"},
         )
 
-    def chat(self, prompt, system="", temp=0.3, max_tokens=500): 
+    def chat(self, prompt, system="", temp=0.3, max_tokens=800): 
         
         """
                 Envia mensagens ao modelo via endpoint /api/chat do Ollama.
@@ -62,7 +54,6 @@ class LLMClient:
         messages.append({"role": "user", "content": prompt})
         
         last_error = None # Armazena o último erro ocorrido durante retries
-        start_time = time.time() # Começa a cronometrar tempo de operação do modelo
 
         for attempt in range(self.max_retries): # Tenta o máximo número de vezes fazer o request (3x)
             try:
@@ -76,13 +67,11 @@ class LLMClient:
                     stream=False
                 )
                 
-                tempo_ms = round((time.time() - start_time) * 1000) # Calcula tempo de resposta da LLM
 
                 return {
                     "resposta": response["message"]["content"].strip(),
                     "tokens_prompt": response.get("prompt_eval_count", 0),
-                    "tokens_resposta": response.get("eval_count", 0),
-                    "tempo_ms": tempo_ms
+                    "tokens_resposta": response.get("eval_count", 0)
                 }
 
             except (KeyError, ValueError) as e:
@@ -98,5 +87,4 @@ class LLMClient:
             "resposta": f"Erro: {last_error}",
             "tokens_prompt": 0,
             "tokens_resposta": 0,
-            "tempo_ms": round((time.time() - start_time) * 1000)
         }

@@ -1,3 +1,10 @@
+''' Pendências: 
+- Receber prompts de prompts.py sequencialmente
+- Enviar respostas para prompts.py sequencialmente
+- Enviar prompt formatado para Guardrail de OUTPUT
+'''
+
+
 import os
 import time
 from dotenv import load_dotenv

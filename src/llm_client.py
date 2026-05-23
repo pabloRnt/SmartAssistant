@@ -12,6 +12,7 @@ class LLMClient:
         self.host = os.getenv("OLLAMA_HOST", "https://ollama.com").rstrip("/") # Determina o host do modelo
         self.model = os.getenv("OLLAMA_MODEL", "gpt-oss:120b") 
         self.max_retries = int(os.getenv("OLLAMA_MAX_RETRIES", "3")) # Determina número máximo de tentativas - 3x
+        self.system_prompt = self.load_system_prompt()
         
         self.client = Client(
             host=self.host,
@@ -25,7 +26,7 @@ class LLMClient:
         with open(path, "r", encoding="utf-8") as file:
             return file.read()
 
-    def chat(self, prompt, system="", temp=0.3, max_tokens=800): 
+    def chat(self, prompt, temp=0.3, max_tokens=800): 
         
         """
                 Envia mensagens ao modelo via endpoint /api/chat do Ollama.

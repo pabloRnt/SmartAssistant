@@ -2,5 +2,5 @@ ollama
 python-dotenv
 pandas
 matplotlib
-Pydantic
+pydantic
 tiktoken

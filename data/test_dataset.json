@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "texto": "Meu notebook chegou com a tela quebrada e ninguém resolve meu problema.",
+    "tipo_esperado": "reclamacao",
+    "urgencia_esperada": "alta",
+    "palavras_chave": ["quebrada", "problema"]
+  },
+  {
+    "id": 2,
+    "texto": "O fone bluetooth possui garantia de quantos meses?",
+    "tipo_esperado": "duvida",
+    "urgencia_esperada": "baixa",
+    "palavras_chave": ["garantia", "meses"]
+  },
+  {
+    "id": 3,
+    "texto": "Quero devolver meu monitor porque ele não atendeu minhas expectativas.",
+    "tipo_esperado": "devolucao",
+    "urgencia_esperada": "media",
+    "palavras_chave": ["devolver", "monitor"]
+  },
+  {
+    "id": 4,
+    "texto": "Amei o atendimento da loja, o celular é ótimo e chegou super rápido!",
+    "tipo_esperado": "elogio",
+    "urgencia_esperada": "baixa",
+    "palavras_chave": ["amei", "ótimo"]
+  },
+  {
+    "id": 5,
+    "texto": "Gostaria de sugerir que vocês vendam também capinhas para o modelo X.",
+    "tipo_esperado": "sugestao",
+    "urgencia_esperada": "baixa",
+    "palavras_chave": ["sugerir", "capinhas"]
+  },
+  {
+    "id": 6,
+    "texto": "Já faz duas semanas que meu pedido está atrasado e ninguém me responde.",
+    "tipo_esperado": "reclamacao",
+    "urgencia_esperada": "media",
+    "palavras_chave": ["atrasado", "responde"]
+  },
+  {
+    "id": 7,
+    "texto": "Como funciona a política de troca da TechStore para mouses?",
+    "tipo_esperado": "duvida",
+    "urgencia_esperada": "baixa",
+    "palavras_chave": ["política", "troca"]
+  },
+  {
+    "id": 8,
+    "texto": "Meu teclado veio quebrado e quero devolver imediatamente.",
+    "tipo_esperado": "devolucao",
+    "urgencia_esperada": "alta",
+    "palavras_chave": ["teclado", "devolver"]
+  },
+  {
+    "id": 9,
+    "texto": "Vocês parcelam em quantas vezes sem juros no cartão de crédito?",
+    "tipo_esperado": "duvida",
+    "urgencia_esperada": "media",
+    "palavras_chave": ["parcelam", "juros"]
+  },
+  {
+    "id": 10,
+    "texto": "O suporte de vocês foi incrível, resolveram meu problema em minutos. Obrigado!",
+    "tipo_esperado": "elogio",
+    "urgencia_esperada": "baixa",
+    "palavras_chave": ["incrível", "obrigado"]
+  }
+]

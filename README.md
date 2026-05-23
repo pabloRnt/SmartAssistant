@@ -1,2 +1,12 @@
-# SmartAssistant
-Assistente de domínio em Python que usa prompt chaining, retorna dados estruturados validados, tem guardrails de segurança contra ataques e aplica frameworks profissionais de prompt engineering.
+# Smart Assistant - CP03
+Projeto de Assistente Inteligente com Chaining e Guardrails.
+
+## Estrutura
+- `main.py`: Orquestrador principal.
+- `src/`: Lógica do chain, avaliador e guardrails.
+- `output/`: Relatórios de avaliação (CSV).
+- `graficos/`: Visualização das métricas.
+
+## Execução
+1. Instale dependências: `pip install pandas matplotlib pydantic ollama`
+2. Rode a avaliação: `python main.py`

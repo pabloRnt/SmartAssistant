@@ -8,5 +8,5 @@ Projeto de Assistente Inteligente com Chaining e Guardrails.
 - `graficos/`: Visualização das métricas.
 
 ## Execução
-1. Instale dependências: `pip install pandas matplotlib pydantic ollama`
+1. Instale dependências: `pip install pandas matplotlib pydantic ollama tiktoken python-dotenv`
 2. Rode a avaliação: `python main.py`

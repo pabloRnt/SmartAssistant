@@ -2,6 +2,7 @@ import os
 import time
 from dotenv import load_dotenv
 from ollama import Client
+from pathlib import Path
 
 load_dotenv() # Carrega variáveis do arquivo .env utilizados pela conexão com Ollama
 api_key = os.getenv("OLLAMA_API_KEY")
@@ -16,6 +17,13 @@ class LLMClient:
             host=self.host,
             headers={"Authorization": f"Bearer {api_key}"},
         )
+        
+    def load_system_prompt(self):
+
+        path = Path("prompts/system_prompt.txt")
+
+        with open(path, "r", encoding="utf-8") as file:
+            return file.read()
 
     def chat(self, prompt, system="", temp=0.3, max_tokens=800): 
         
@@ -48,10 +56,10 @@ class LLMClient:
         if not prompt or not prompt.strip():
             raise ValueError("O prompt não pode ser vazio.")
 
-        messages = []
-        if system and system.strip():
-            messages.append({"role": "system", "content": system})
-        messages.append({"role": "user", "content": prompt})
+        messages = [
+            {"role": "system", "content": self.system_prompt},
+            {"role": "user", "content": prompt}
+        ]
         
         last_error = None # Armazena o último erro ocorrido durante retries
 

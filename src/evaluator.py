@@ -6,7 +6,4 @@ class Evaluator:
         os.makedirs("graficos", exist_ok=True)
 
     def run_evaluation(self, pipeline_func):
-        # Lógica de benchmark com time.time()
-        # Salva em output/eval_results.csv
-        # Salva gráfico em graficos/metricas_avaliacao.png
         pass

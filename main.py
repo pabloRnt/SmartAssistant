@@ -12,8 +12,7 @@ def limpar_markdown_json(json_str):
     json_str = json_str.strip()
     if json_str.startswith("```"):
         try:
-            json_str = json_str.split("\n", 1)[1].rsplit("
-```", 1)[0]
+            json_str = json_str.split("\n", 1)[1].rsplit("```", 1)[0]
         except IndexError:
             pass
     return json_str
